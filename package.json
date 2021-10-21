@@ -1,0 +1,22 @@
+{
+  "name": "fixando-api-rest",
+  "version": "1.0.0",
+  "description": "treinando api rest para fixar passos da criaçao de um serviço",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Darielly Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dariellysantos/fixando-api-rest/issues"
+  },
+  "homepage": "https://github.com/Dariellysantos/fixando-api-rest#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
