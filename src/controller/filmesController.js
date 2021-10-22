@@ -20,8 +20,8 @@ const getById = (req, res) => {
 };
 
 const getByTitle = (req, res) => {
-  const titleMovie = req.query.titulo;
-  let foundMovie = models.filter((filmes) => filmes.Title.includes(titleMovie));
+  const titleMovie = req.query.title;
+  let foundMovie = models.filter((movie) => movie.Title.includes(titleMovie));
 
   res.status(200).json(foundMovie);
 };
