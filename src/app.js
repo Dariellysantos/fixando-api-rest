@@ -4,8 +4,9 @@ const cors = require("cors");
 
 const filmesRouter = require("./routes/filmesRoutes");
 
+app.use(express.json());
+
 app.use("/filmes", filmesRouter);
 
-app.use(express.json());
 app.use(cors());
 module.exports = app;
