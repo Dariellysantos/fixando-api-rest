@@ -20,8 +20,17 @@ const getById = (req, res) => {
 };
 
 const getByTitle = (req, res) => {
-  const titleMovie = req.query.title;
-  let foundMovie = models.filter((movie) => movie.Title.includes(titleMovie));
+  const titleMovie = req.query.title.toLowerCase();
+  let foundMovie = models.filter((movie) =>
+    movie.Title.toLowerCase().includes(titleMovie.toLowerCase())
+  );
+
+  if (!foundMovie) {
+    res.status(400).send({ Error: " Titulo não encontrado" });
+  }
+  if (foundMovie.length == 0) {
+    res.status(400).send({ Error: " Titulo não encontrado" });
+  }
 
   res.status(200).json(foundMovie);
 };
