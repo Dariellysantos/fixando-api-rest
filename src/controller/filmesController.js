@@ -19,7 +19,14 @@ const getById = (req, res) => {
   res.status(200).json(found);
 };
 
+const getByTitle = (req, res) => {
+  const titleMovie = req.query.titulo;
+  let foundMovie = models.filter((filmes) => filmes.Title.includes(titleMovie));
+
+  res.status(200).json(foundMovie);
+};
 module.exports = {
   getAll,
   getById,
+  getByTitle,
 };
