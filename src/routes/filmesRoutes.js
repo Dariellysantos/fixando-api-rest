@@ -9,4 +9,6 @@ router.get("/list", controller.getAll);
 router.get("/id/:id", controller.getById);
 router.get("/title", controller.getByTitle);
 
+router.post("/criar", controller.createMovie);
+
 module.exports = router;

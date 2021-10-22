@@ -34,8 +34,28 @@ const getByTitle = (req, res) => {
 
   res.status(200).json(foundMovie);
 };
+
+const createMovie = (req, res) => {
+  let bodyRequest = req.body;
+  console.log(req.body);
+  let newMovie = {
+    id: models.length + 1,
+    Title: bodyRequest.Title,
+    Plot: bodyRequest.Plot,
+  };
+  console.log(newMovie);
+
+  models.push(newMovie);
+  res.status(201).json([
+    {
+      mensagem: "Filme cadastrado com sucesso",
+      newMovie,
+    },
+  ]);
+};
 module.exports = {
   getAll,
   getById,
   getByTitle,
+  createMovie,
 };
