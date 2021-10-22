@@ -8,6 +8,13 @@ const getAll = (req, res) => {
   ]);
 };
 
+const getById = (req, res) => {
+  const idMovie = req.params.id;
+  let found = models.find((models) => models.id == idMovie);
+  res.status(200).json(found);
+};
+
 module.exports = {
   getAll,
+  getById,
 };
