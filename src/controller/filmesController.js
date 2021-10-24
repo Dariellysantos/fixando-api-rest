@@ -53,14 +53,31 @@ const createMovie = (req, res) => {
   ]);
 };
 
+const update = (req, res) => {
+  const idRequestMovie = req.params.id;
+  let newUpdate = req.body;
+
+  newUpdateFound = models.find((movie) => (movie.id = idRequestMovie));
+  let newUpdateId = {
+    id: idRequestMovie,
+    ...newUpdate,
+  };
+
+  models.push(newUpdateId);
+  res.status(200).json([
+    {
+      mensagem: " Informações do id atualizadas",
+      newUpdateId,
+    },
+  ]);
+};
+
 const updateTitle = (req, res) => {
   const idRequest = req.params.id;
   let newTitle = req.body.Title;
 
   movieFound = models.find((movie) => movie.id == idRequest);
-  console.log(newTitle);
   movieFound.Title = newTitle;
-  console.log(movieFound);
   res.status(200).json([
     {
       mensagem: "filme atualizado com sucesso",
@@ -75,4 +92,5 @@ module.exports = {
   getByTitle,
   createMovie,
   updateTitle,
+  update,
 };
