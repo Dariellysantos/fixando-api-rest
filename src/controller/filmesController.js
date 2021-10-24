@@ -1,3 +1,4 @@
+const { json } = require("express");
 const models = require("../models/filmes.json");
 
 const getAll = (req, res) => {
@@ -37,13 +38,11 @@ const getByTitle = (req, res) => {
 
 const createMovie = (req, res) => {
   let bodyRequest = req.body;
-  console.log(req.body);
   let newMovie = {
     id: models.length + 1,
     Title: bodyRequest.Title,
     Plot: bodyRequest.Plot,
   };
-  console.log(newMovie);
 
   models.push(newMovie);
   res.status(201).json([
@@ -53,9 +52,27 @@ const createMovie = (req, res) => {
     },
   ]);
 };
+
+const updateTitle = (req, res) => {
+  const idRequest = req.params.id;
+  let newTitle = req.body.Title;
+
+  movieFound = models.find((movie) => movie.id == idRequest);
+  console.log(newTitle);
+  movieFound.Title = newTitle;
+  console.log(movieFound);
+  res.status(200).json([
+    {
+      mensagem: "filme atualizado com sucesso",
+      movieFound,
+    },
+  ]);
+};
+
 module.exports = {
   getAll,
   getById,
   getByTitle,
   createMovie,
+  updateTitle,
 };
