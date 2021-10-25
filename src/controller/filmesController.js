@@ -86,6 +86,37 @@ const updateTitle = (req, res) => {
   ]);
 };
 
+const updateMovieBody = (req, res) => {
+  const idRequestBody = req.params.id;
+  let bodyRequestMovie = req.body;
+  movieFound = models.find((movie) => movie.id == idRequestBody);
+
+  let newMovieBody = {
+    id: idRequestBody,
+    Title: bodyRequestMovie.Title,
+    Year: bodyRequestMovie.Year,
+    Rated: bodyRequestMovie.Rated,
+    Released: bodyRequestMovie.Released,
+    Runtime: bodyRequestMovie.Runtime,
+    Genre: bodyRequestMovie.Genre,
+    Director: bodyRequestMovie.Director,
+    Writer: bodyRequestMovie.Writer,
+    Actors: bodyRequestMovie.Actors,
+    Plot: bodyRequestMovie.Plot,
+    Language: bodyRequestMovie.Language,
+    Country: bodyRequestMovie.Country,
+    Awards: bodyRequestMovie.Awards,
+  };
+
+  models.push(newMovieBody);
+  res.status(201).json([
+    {
+      mensagem: "Filme Atualizado com sucesso",
+      newMovieBody,
+    },
+  ]);
+};
+
 module.exports = {
   getAll,
   getById,
@@ -93,4 +124,5 @@ module.exports = {
   createMovie,
   updateTitle,
   update,
+  updateMovieBody,
 };

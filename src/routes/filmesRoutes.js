@@ -11,5 +11,6 @@ router.get("/title", controller.getByTitle);
 router.patch("/updateTitle/:id", controller.updateTitle);
 router.put("/update/:id", controller.update);
 router.post("/criar", controller.createMovie);
+router.patch("/update/:id", controller.updateMovieBody);
 
 module.exports = router;
