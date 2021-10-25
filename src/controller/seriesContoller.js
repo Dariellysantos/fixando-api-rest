@@ -84,6 +84,35 @@ const updateTitle = (req, res) => {
     },
   ]);
 };
+
+const updateSerieBody = (req, res) => {
+  const idRequestBody = req.params.id;
+  let bodyRequestSerie = req.body;
+  serieFound = models.find((serie) => serie.id == idRequestBody);
+
+  let newSerieBody = {
+    id: idRequestBody,
+    title: bodyRequestSerie.title,
+    totalSeasons: bodyRequestSerie.totalSeasons,
+    genre: [bodyRequestSerie.genre],
+    writers: [bodyRequestSerie.writers],
+    poster: bodyRequestSerie.poster,
+    actors: [bodyRequestSerie.actors],
+    ratings: {
+      rating: bodyRequestSerie.rating,
+      likes: bodyRequestSerie.likes,
+    },
+  };
+
+  models.push(newSerieBody);
+  res.status(201).json([
+    {
+      mensagem: "Filme Atualizado com sucesso",
+      newSerieBody,
+    },
+  ]);
+};
+
 module.exports = {
   getAll,
   getById,
@@ -91,4 +120,5 @@ module.exports = {
   createSerie,
   update,
   updateTitle,
+  updateSerieBody,
 };
