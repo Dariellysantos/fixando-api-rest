@@ -20,7 +20,21 @@ const getById = (req, res) => {
   res.status(200).json(found);
 };
 
+const getByTitle = (req, res) => {
+  const titleSerie = req.query.title;
+  let foundSerie = models.filter((serie) => serie.title.includes(titleSerie));
+
+  if (!foundSerie) {
+    res.status(400).send({ Error: " Titulo não encontrado" });
+  }
+  if (foundSerie.length == 0) {
+    res.status(400).send({ Error: " Titulo não encontrado" });
+  }
+
+  res.status(200).json(foundSerie);
+};
 module.exports = {
   getAll,
   getById,
+  getByTitle,
 };
