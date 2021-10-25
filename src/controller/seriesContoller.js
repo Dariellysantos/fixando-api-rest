@@ -107,8 +107,24 @@ const updateSerieBody = (req, res) => {
   models.push(newSerieBody);
   res.status(201).json([
     {
-      mensagem: "Filme Atualizado com sucesso",
+      mensagem: "Serie Atualizado com sucesso",
       newSerieBody,
+    },
+  ]);
+};
+
+const deleteSerie = (req, res) => {
+  const idRequest = req.params.id;
+
+  const foundSerie = models.findIndex((serie) => serie.id == idRequest);
+
+  models.splice(foundSerie, 1);
+
+  res.status(200).json([
+    {
+      mensagem: "Filme deletado com sucesso",
+      deletado: idRequest,
+      models,
     },
   ]);
 };
@@ -121,4 +137,5 @@ module.exports = {
   update,
   updateTitle,
   updateSerieBody,
+  deleteSerie,
 };

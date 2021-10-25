@@ -12,5 +12,6 @@ router.post("/criar", controller.createSerie);
 router.put("/update/:id", controller.update);
 router.patch("/updateTitle/:id", controller.updateTitle);
 router.patch("/update/:id", controller.updateSerieBody);
+router.delete("/delete/:id", controller.deleteSerie);
 
 module.exports = router;
