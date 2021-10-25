@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 
 const filmesRouter = require("./routes/filmesRoutes");
-const filmesRouter = require("./routes/seriesRoutes");
+const serieRouter = require("./routes/seriesRoutes");
 
 app.use(express.json());
 
