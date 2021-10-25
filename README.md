@@ -10,7 +10,7 @@ Esse projeto foi desenvolvido como proposta de atividade no {reprograma}.
 
 O objetivo era desenvolver um serviço de API Rest com crud 
 
-![exercicio](/home/darielly/Área de Trabalho/sandbox/fixando-api-rest/imagem/exercicio.jpeg)
+![exercicio](imagem/exercicio.jpeg)
 
 
 
