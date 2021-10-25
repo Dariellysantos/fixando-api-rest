@@ -51,9 +51,30 @@ const createSerie = (req, res) => {
   ]);
 };
 
+const update = (req, res) => {
+  const idRequestSerie = req.params.id;
+  let newUpdate = req.body;
+
+  newUpdateFound = models.find((serie) => serie.id == idRequestSerie);
+
+  let newUpdateId = {
+    id: idRequestSerie,
+    ...newUpdate,
+  };
+
+  models.push(newUpdateId);
+  res.status(200).json([
+    {
+      mensagem: " Informações do id atualizadas",
+      newUpdateId,
+    },
+  ]);
+};
+
 module.exports = {
   getAll,
   getById,
   getByTitle,
   createSerie,
+  update,
 };
