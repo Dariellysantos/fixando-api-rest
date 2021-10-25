@@ -117,6 +117,22 @@ const updateMovieBody = (req, res) => {
   ]);
 };
 
+const deleteMovie = (req, res) => {
+  const idRequest = req.params.id;
+
+  const foundMovie = models.findIndex((movie) => movie.id == idRequest);
+
+  models.splice(foundMovie, 1);
+
+  res.status(200).json([
+    {
+      mensagem: "Filme deletado com sucesso",
+      deletado: idRequest,
+      models,
+    },
+  ]);
+};
+
 module.exports = {
   getAll,
   getById,
@@ -125,4 +141,5 @@ module.exports = {
   updateTitle,
   update,
   updateMovieBody,
+  deleteMovie,
 };
