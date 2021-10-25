@@ -10,5 +10,6 @@ router.get("/id/:id", controller.getById);
 router.get("/title", controller.getByTitle);
 router.post("/criar", controller.createSerie);
 router.put("/update/:id", controller.update);
+router.patch("/updateTitle/:id", controller.updateTitle);
 
 module.exports = router;

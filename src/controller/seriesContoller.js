@@ -71,10 +71,24 @@ const update = (req, res) => {
   ]);
 };
 
+const updateTitle = (req, res) => {
+  const idRequest = req.params.id;
+  let newTitle = req.body.title;
+
+  serieFound = models.find((serie) => serie.id == idRequest);
+  serieFound.title = newTitle;
+  res.status(200).json([
+    {
+      mensagem: "serie atualizado com sucesso",
+      serieFound,
+    },
+  ]);
+};
 module.exports = {
   getAll,
   getById,
   getByTitle,
   createSerie,
   update,
+  updateTitle,
 };
