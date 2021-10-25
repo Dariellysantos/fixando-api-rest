@@ -10,9 +10,6 @@ Esse projeto foi desenvolvido como proposta de atividade no {reprograma}.
 
 O objetivo era desenvolver um serviço de API Rest com crud 
 
-![exercicio](imagem/exercicio.jpeg)
-
-
 
 <br>
 
