@@ -8,7 +8,7 @@ const serieRouter = require("./routes/seriesRoutes");
 app.use(express.json());
 
 app.use("/filmes", filmesRouter);
-app.use("/serie", serieRouter);
+app.use("/series", serieRouter);
 
 app.use(cors());
 module.exports = app;
